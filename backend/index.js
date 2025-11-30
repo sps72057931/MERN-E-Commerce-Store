@@ -1,10 +1,13 @@
+// Load environment variables FIRST
+import dotenv from "dotenv";
+dotenv.config();
+
 // packages
 import path from "path";
 import express from "express";
-import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 
-// Utiles
+// Utils
 import connectDB from "./config/db.js";
 import userRoutes from "./routes/userRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
@@ -12,9 +15,9 @@ import productRoutes from "./routes/productRoutes.js";
 import uploadRoutes from "./routes/uploadRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";
 
-dotenv.config();
 const port = process.env.PORT || 5000;
 
+// connect DB AFTER dotenv is loaded
 connectDB();
 
 const app = express();
